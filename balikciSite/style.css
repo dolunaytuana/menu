@@ -1,0 +1,64 @@
+/* Sayfa genel ayarları */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f8ff;
+  color: #333;
+}
+
+/* Üst kısım */
+header {
+  background-color: #004466;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Menü (navigasyon) */
+nav {
+  background-color: #006699;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Bölümler */
+.section {
+  padding: 40px;
+  text-align: center;
+}
+
+/* Menü kutuları */
+.menu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.menu-item {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 200px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* Alt bilgi */
+footer {
+  background-color: #004466;
+  color: white;
+  text-align: center;
+  padding: 15px;
+}

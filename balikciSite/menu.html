@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menü Detayı - Mammini Kafe Balık</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Pacifico&display=swap');
+
+  body {
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(180deg, #cce6ff 0%, #f8fbff 100%);
+    color: #003366;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  header {
+    background: linear-gradient(90deg, #0077b6, #00b4d8);
+    color: white;
+    padding: 25px 0;
+    font-family: 'Pacifico', cursive;
+    font-size: 32px;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+
+  .menu-list {
+    margin: 40px auto 20px auto;
+    width: 90%;
+    max-width: 600px;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    animation: fadeIn 0.5s ease;
+    flex: 0;
+  }
+
+  .menu-list h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #0077b6;
+  }
+
+  .menu-item {
+    padding: 12px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 1.1em;
+  }
+
+  a.back-btn {
+    margin-top: 25px;
+    display: inline-block;
+    text-decoration: none;
+    background-color: #0077b6;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: 0.3s;
+    margin:0 auto 40px auto;
+    display: inline-block;
+  }
+
+  a.back-btn:hover {
+    background-color: #005f8e;
+  }
+
+  footer {
+    margin-top: auto;
+    background-color: #0077b6;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9em;
+  }
+
+  @keyframes fadeIn {
+    from {opacity:0;}
+    to {opacity:1;}
+  }
+</style>
+</head>
+<body>
+
+<header>Mammini Kafe Balık</header>
+
+<div class="menu-list" id="menuList"></div>
+
+<a href="index.html" class="back-btn">← Geri Dön</a>
+
+<footer>
+  <p>📍 Adres: Sinan Mahallesi, 1265 Sokak, No:7/B, Antalya/Muratpaşa</p>
+  <p>📞 Tel: 0 (501) 220 17 09</p>
+  <p>© 2025 Mammini Kafe Balık</p>
+</footer>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const type = params.get("type");
+
+  const menus = {
+    "ana-yemek": {
+      title: "Ana Yemekler",
+      items: ["Çupra Izgara/Tava", "Levrek Izgara/Tava", "Hamsi Tava", "Mezgit Izgara/Tava", "Uskumru Izgara/Tava", "Somon Izgara", "Fish&Chips"]
+    },
+    "ara-sicak": {
+      title: "Ara Sıcaklar",
+      items: ["Midye Tava", "Kalamar Tava", "Balık Köftesi", "Balık Çorbası"]
+    },
+    "ekmek-arasi": {
+      title: "Ekmek Arası Lezzetler",
+      items: ["Hamsi Ekmek", "Uskumru Ekmek", "Levrek Ekmek", "Çupra Ekmek", "Kalamar Ekmek", "Midye Tava Ekmek", "Atom Ekmek (Kalamar, midye, balık)", "Mezgit Ekmek", "Balık Köftesi Ekmek", "Balık Kokoreç", "Balık Burger", "Hamburger", "Jumbo Karides"]
+    },
+    "salata": {
+      title: "Salatalar",
+      items: ["Avokado Soslu Salata", "Tavuklu Salata", "Kaşık Salata"]
+    }
+  };
+
+  const menu = menus[type];
+  const menuList = document.getElementById("menuList");
+
+  if (menu) {
+  let html = `<h2>${menu.title}</h2>`;
+  menu.items.forEach(item => {
+    html += `<div class="menu-item">${item}</div>`;
+  });
+  menuList.innerHTML = html;
+} else {
+  menuList.innerHTML = "<h2>Menü bulunamadı.</h2>";
+}
+</script>
+
+</body>
+</html>
